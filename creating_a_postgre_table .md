@@ -41,6 +41,22 @@ except psycopg2.Error as e:
     print("Error: Inserting Rows")
     print (e)
     
+try: 
+    cur.execute("SELECT * FROM songs;")
+except psycopg2.Error as e: 
+    print("Error: select *")
+    print (e)
+
+row = cur.fetchone()
+while row:
+   print(row)
+   row = cur.fetchone()
+   
+   
+cur.close()
+conn.close()
+
+    
     
     
     
